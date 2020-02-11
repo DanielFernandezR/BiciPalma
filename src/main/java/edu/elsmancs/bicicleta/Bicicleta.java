@@ -1,4 +1,4 @@
-package edu.elsmancs.bicipalma;
+package edu.elsmancs.bicicleta;
 
 public class Bicicleta {
 	

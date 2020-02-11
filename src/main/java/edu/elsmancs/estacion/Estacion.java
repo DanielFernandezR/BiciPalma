@@ -1,4 +1,6 @@
-package edu.elsmancs.bicipalma;
+package edu.elsmancs.estacion;
+
+import edu.elsmancs.bicicleta.Bicicleta;
 
 public class Estacion {
 
