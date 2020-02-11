@@ -1,19 +1,17 @@
 package edu.elsmancs.bicipalma;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Estacion {
 
 	private int id = 0;
 	private String direccion = null;
 	private int numeroAnclajes = 0;
-	private List<Integer> anclajes = new ArrayList<Integer>();
+	private Bicicleta[] anclajes = null; 
 	
-	public Estacion(int id, String direccion, int numeroAnclajes) {
+	public Estacion(int id, String direccion, int anclajes) {
 		this.id = id;
 		this.direccion = direccion;
-		this.numeroAnclajes= numeroAnclajes;
+		this.numeroAnclajes= anclajes;
+		this.anclajes = new Bicicleta[anclajes];
 	}
 	
 	private int getID() {
@@ -27,17 +25,22 @@ public class Estacion {
 	private int getNumAnclajes() {
 		return this.numeroAnclajes;
 	}
-	
-	@Override
-	public String toString() {
-		return ("id: " + getID() + "\n" + 
-				"direccion: " + getDireccion() + "\n" + 
-				"numeroAnclajes: " + getNumAnclajes());
-	}
+
 	
 	public void consultarEstacion() {
-		System.out.println(toString());
+		System.out.println("id: " + getID());
+		System.out.println("direccion: " + getDireccion());
+		System.out.println("numeroAnclajes: " + getNumAnclajes());
 	}
 	
-	
+	public int anclajesLibres() {
+		int numAnclajesLibres = 0;
+		for (Bicicleta anclaje:this.anclajes){
+			if (anclaje == null) {
+				numAnclajesLibres += 1;
+			} else
+				;
+		}
+		return numAnclajesLibres;
+	}
 }

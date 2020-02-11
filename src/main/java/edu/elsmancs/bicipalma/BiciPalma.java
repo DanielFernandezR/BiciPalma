@@ -55,7 +55,7 @@ public class BiciPalma {
 		
 		TarjetaUsuario tarjetaUsuario = new TarjetaUsuario("000456789", true);
 		
-		System.out.println("¿tarjeta de usuario activada? (true/false): " + estacion.leerTarjetaUsuario(tarjetaUsuario) );
+		System.out.println("Â¿tarjeta de usuario activada? (true/false): " + estacion.leerTarjetaUsuario(tarjetaUsuario) );
 		
 		estacion.retirarBicicleta(tarjetaUsuario);
 		
