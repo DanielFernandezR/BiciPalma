@@ -45,4 +45,25 @@ public class Estacion {
 		}
 		return numAnclajesLibres;
 	}
-}
+	
+	public void anclarBicicleta(Bicicleta bicicleta) {
+		int posicion = 0;
+		int numAnclaje = posicion + 1;
+		for (Bicicleta anclaje:this.anclajes) {
+			if (anclaje == null) {
+				this.anclajes[posicion] = bicicleta;
+				mostrarAnclaje(bicicleta, numAnclaje);
+				break;
+			}
+			else 
+				posicion ++;
+				numAnclaje ++;
+				
+			}
+		}
+	
+	void mostrarAnclaje(Bicicleta bicicleta, int numAnclaje) {
+		System.out.println("bicicleta: " + bicicleta.getId() + " anclada en el anclaje: " + numAnclaje);
+	}
+	}
+
