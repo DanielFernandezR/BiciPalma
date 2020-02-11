@@ -2,7 +2,7 @@ package edu.elsmancs.bicipalma;
 
 import edu.elsmancs.bicicleta.Bicicleta;
 import edu.elsmancs.estacion.Estacion;
-import tarjetaUsuario.TarjetaUsuario;
+import edu.elsmancs.tarjetausuario.TarjetaUsuario;
 
 public class BiciPalma {
 

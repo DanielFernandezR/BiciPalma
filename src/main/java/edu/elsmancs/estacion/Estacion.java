@@ -1,6 +1,9 @@
 package edu.elsmancs.estacion;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 import edu.elsmancs.bicicleta.Bicicleta;
+import edu.elsmancs.tarjetausuario.TarjetaUsuario;
 
 public class Estacion {
 
@@ -64,23 +67,53 @@ public class Estacion {
 	
 	public void consultarAnclajes() {
 		int posicion = 0;
-		int numAnclaje = posicion + 1;
+		int numAnclaje = 0;
 		for (Bicicleta anclaje:this.anclajes) {
+			numAnclaje = posicion + 1;
 			if (anclaje == null) {
 				System.out.println("Anclaje " + numAnclaje + " libre");
 				posicion ++;
-				numAnclaje ++;
 			}
 			else {
-				System.out.println("Anclaje " + numAnclaje + " " + anclaje.getId());
+				System.out.println("Anclaje " + numAnclaje + " " + this.anclajes[posicion].getId());
 				posicion ++;
-				numAnclaje ++;
 			}
+		}
 	}
+	
+	public boolean leerTarjetaUsuario(TarjetaUsuario tarjetaUsuario) {
+		return tarjetaUsuario.getTarjetaActivada();
+		}
+	
+	public void retirarBicicleta(TarjetaUsuario tarjetaUsuario) {
+		if(leerTarjetaUsuario(tarjetaUsuario)) {
+			
+			boolean biciRetirada = false;
+			
+			while(biciRetirada != true) {
+				int posicion = generarAnclaje();
+				int numAnclaje = posicion + 1;
+				if(this.anclajes[posicion] != null) {
+					mostrarBicicleta(this.anclajes[posicion], numAnclaje);
+					this.anclajes[posicion] = null;
+					biciRetirada = true;
+					}else;
+			}
+		}
 	}
 	
 	void mostrarAnclaje(Bicicleta bicicleta, int numAnclaje) {
 		System.out.println("bicicleta: " + bicicleta.getId() + " anclada en el anclaje: " + numAnclaje);
 	}
+	
+	void mostrarBicicleta(Bicicleta bicicleta, int numAnclaje) {
+		System.out.println("Bicicleta retirada: " + bicicleta.getId() + " del anclaje: " + numAnclaje);
 	}
+	
+	public int generarAnclaje() {
+		Integer numRandomAnclaje = ThreadLocalRandom.current().nextInt(0, this.anclajes.length);
+		return numRandomAnclaje;
+	}
+	
+}
 
