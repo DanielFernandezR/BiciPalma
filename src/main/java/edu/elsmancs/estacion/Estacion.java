@@ -50,20 +50,22 @@ public class Estacion {
 	}
 	
 	public void anclarBicicleta(Bicicleta bicicleta) {
-		int posicion = 0;
-		int numAnclaje = posicion + 1;
-		for (Bicicleta anclaje:this.anclajes) {
-			if (anclaje == null) {
-				this.anclajes[posicion] = bicicleta;
+		int posicionLista = 0;
+		int numAnclaje = posicionLista + 1;
+		boolean biciAnclada = false;
+		
+		while (biciAnclada == false) {
+			
+			if(this.anclajes[posicionLista] == null) {
+				this.anclajes[posicionLista] = bicicleta;
 				mostrarAnclaje(bicicleta, numAnclaje);
-				break;
-			}
-			else 
-				posicion ++;
-				numAnclaje ++;
-				
-			}
+				biciAnclada = true;
+			}else { 
+					posicionLista ++;
+					numAnclaje ++;	
+				}
 		}
+	}
 	
 	public void consultarAnclajes() {
 		int posicion = 0;
