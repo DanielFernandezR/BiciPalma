@@ -19,15 +19,15 @@ public class Estacion {
 		this.anclajes = new Bicicleta[anclajes];
 	}
 	
-	private int getID() {
+	public int getID() {
 		return this.id;
 	}
 	
-	private String getDireccion() {
+	public String getDireccion() {
 		return this.direccion;
 	}
 	
-	private int getNumAnclajes() {
+	public int getNumAnclajes() {
 		return this.numeroAnclajes;
 	}
 
